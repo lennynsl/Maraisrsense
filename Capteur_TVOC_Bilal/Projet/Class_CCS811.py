@@ -49,7 +49,7 @@ class CCS811:
 # Pour gérer les erreurs lors de la communication I2C (affichages des erreurs).
     def print_error(self):
        
-       """  error = self.pi.i2c_read_byte_data(self.device, CSS811_ERROR_ID) """
+        """  error = self.pi.i2c_read_byte_data(self.device, CSS811_ERROR_ID) """
 
         error = self.i2c.readfrom_mem(CCS811_ADDR, CSS811_ERROR_ID, 1)[0]
         message = 'Error: '
@@ -89,7 +89,7 @@ class CCS811:
         if mode > 4:
             mode = 4
 
-""" setting = self.pi.i2c_read_byte_data(self.device, CSS811_MEAS_MODE) """
+        """ setting = self.pi.i2c_read_byte_data(self.device, CSS811_MEAS_MODE) """
         setting = self.i2c.readfrom_mem(CCS811_ADDR, CSS811_MEAS_MODE, 1)[0]
         setting &= ~(0b00000111 << 4)
         setting |= (mode << 4)
@@ -99,7 +99,7 @@ class CCS811:
 # Cette méthode fait partie d'une classe Python utilisée pour interagir avec le capteur CCS811. 
 # Un capteur de qualité de l'air capable de mesurer le CO2 et les composés organiques volatils totaux (TVOC).
     def configure_ccs811(self):
-       """  hardware_id = self.pi.i2c_read_byte_data(self.device, CSS811_HW_ID) """
+        """  hardware_id = self.pi.i2c_read_byte_data(self.device, CSS811_HW_ID) """
         hardware_id = self.i2c.readfrom_mem(CCS811_ADDR, CSS811_HW_ID, 1)[0]
 
 
