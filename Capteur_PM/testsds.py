@@ -1,23 +1,25 @@
-import serial
-import time
-import sds011
-import os
+import serial  # Bibliothèque pour la communication série
+import time    # Bibliothèque pour gérer les temporisations
+import sds011  # Bibliothèque pour interagir avec le capteur SDS011
+import os      # Bibliothèque pour vérifier la présence du port série
 
-#installer les bibliothèques serial, pyserial, time, sds011 et os
+#il faut installer ces bibliothèques au préalable sur le unihiker
 
+# Classe pour gérer la connexion et l'interaction avec le capteur SDS011
 class GestionPM:
     def __init__(self, port):
-        self.port = port
-        self.sensor = None
-        self.init_sensor()
+        """Initialise la gestion du capteur SDS011 sur un port donné."""
+        self.port = port  # Stocke le port du capteur
+        self.sensor = None  # Initialise le capteur comme non connecté
+        self.init_sensor()  # Tente d'initialiser le capteur
 
     def init_sensor(self):
-        """ Initialise le capteur si le port est disponible. """
+        """Initialise le capteur si le port est disponible."""
         try:
-            if os.path.exists(self.port):
+            if os.path.exists(self.port):  # Vérifie si le port existe
                 if self.sensor is not None:
-                    self.sensor.close()
-                self.sensor = sds011.SDS011(self.port, use_query_mode=True)
+                    self.sensor.close()  # Ferme la connexion précédente si elle existe
+                self.sensor = sds011.SDS011(self.port, use_query_mode=True)  # Initialise le capteur en mode requête
                 print(f"✅ Capteur connecté sur {self.port}")
             else:
                 print(f"⚠️ Port {self.port} non trouvé. Attente de reconnexion...")
@@ -29,77 +31,70 @@ class GestionPM:
             raise
 
     def __reveil_capteur(self):
-        """ Gestion du capteur avec reconnexion automatique """
+        """Réveille le capteur en cas de mise en veille ou tente une reconnexion."""
         if self.sensor is None:
             print("🔄 Tentative de reconnexion au capteur...")
             self.init_sensor()
             return
 
         try:
-            self.sensor.sleep(sleep=False)
+            self.sensor.sleep(sleep=False)  # Réveille le capteur
         except (serial.SerialException, OSError) as e:
             print(f"⚠️ Erreur lors du réveil du capteur : {e}")
-            self.sensor = None  # Réinitialise le capteur pour forcer une reconnexion au prochain cycle
-            time.sleep(self.intervalle)
+            self.sensor = None  # Réinitialise le capteur pour forcer une reconnexion
+            time.sleep(5)  # Pause avant une nouvelle tentative
             raise
 
     def __sommeil_capteur(self):
-        """ Met le capteur en veille avec gestion des erreurs et reconnexion automatique """
+        """Met le capteur en veille avec gestion des erreurs."""
         if self.sensor is None:
             print("🔄 Tentative de reconnexion au capteur avant mise en veille...")
             self.init_sensor()
             return
-
         try:
             print("💤 Mise en veille du capteur...")
-            self.sensor.sleep(sleep=True)
-            # time.sleep(2)  # Petite pause pour éviter une surcharge
+            self.sensor.sleep(sleep=True)  # Met le capteur en veille
         except (serial.SerialException, OSError) as e:
             print(f"⚠️ Erreur lors de la mise en veille du capteur : {e}")
-            self.sensor = None  # Réinitialise le capteur pour forcer une reconnexion au prochain cycle
+            self.sensor = None  # Réinitialise le capteur pour forcer une reconnexion
             raise
 
-
-    def get_valeur(self):    
-        # if self.sensor is None:
-        #     return None, None
-        
+    def get_valeur(self):
+        """Récupère les valeurs de particules fines PM2.5 et PM10 mesurées par le capteur."""
         try:
-            self.__reveil_capteur()
-            time.sleep(30)
-            result = self.sensor.query()
+            self.__reveil_capteur()  # Réveille le capteur avant la mesure
+            time.sleep(30)  # Attente pour stabilisation des mesures
+            result = self.sensor.query()  # Requête pour obtenir les valeurs PM2.5 et PM10
             if result is not None:
-                return result
+                return result  # Retourne les valeurs si elles sont valides
             else:
                 print("⚠️ Impossible de récupérer les données du capteur.")
                 self.sensor.sleep(sleep=True)
                 raise
-            self.__sommeil_capteur()
-        # return None, None
+            self.__sommeil_capteur()  # Met le capteur en veille après la mesure
         except (serial.SerialException, OSError) as e:
             print(f"⚠️ Erreur de lecture du capteur : {e}")
-            self.sensor = None
+            self.sensor = None  # Réinitialise le capteur
             raise
-            # return None, None
-            
 
-if __name__ == "__main__":  
+# Exécution principale du programme
+if __name__ == "__main__":
     while True:
-        try :
-            capteur = GestionPM(port="/dev/sds011")
-            break
-        except :
-            time.sleep(5)
-    while True:    
         try:
-            # Test de récupération des valeurs
+            capteur = GestionPM(port="/dev/sds011")  # Initialise l'objet de gestion du capteur
+            break
+        except:
+            time.sleep(5)  # Réessaie après 5 secondes en cas d'erreur
+    
+    while True:
+        try:
+            # Tentative de récupération des valeurs du capteur
             print("📊 Récupération des valeurs du capteur...")
             pm25, pm10 = capteur.get_valeur()
             if pm25 is not None and pm10 is not None:
                 print(f"✅ Données du capteur : PM2.5 = {pm25} µg/m³, PM10 = {pm10} µg/m³")
             else:
                 print("❌ Aucune donnée reçue du capteur.")
-            
         except Exception as e:
             print(f"🚨 Erreur lors des tests : {e}")
-        time.sleep(5)
+        time.sleep(5)  # Pause de 5 secondes avant la prochaine lecture
