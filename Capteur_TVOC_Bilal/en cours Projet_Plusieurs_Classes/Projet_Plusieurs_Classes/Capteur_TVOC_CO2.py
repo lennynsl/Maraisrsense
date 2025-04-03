@@ -1,7 +1,7 @@
 from Class_CCS811 import CCS811
 from pinpong.board import I2C
 
-class CapteurTVOC_CO2:
+class GestionTVOC_CO2:
     """
     Classe pour interagir avec le capteur CCS811 et lire les niveaux de CO2 et TVOC.
     """
@@ -13,7 +13,7 @@ class CapteurTVOC_CO2:
         self.capteur = CCS811()
         self.capteur.setup()
 
-    def lire_mesure(self):
+    def get_mesure(self):
         """
         Effectue une mesure unique et retourne les niveaux de CO2 et TVOC.
         """
@@ -30,8 +30,8 @@ class CapteurTVOC_CO2:
 if __name__ == "__main__":
     # Exemple d'utilisation
     i2c = I2C()
-    capteur = CapteurTVOC_CO2(i2c)
-    co2, tvoc = capteur.lire_mesure()
+    capteur = GestionTVOC_CO2(i2c)
+    co2, tvoc = capteur.get_mesure()
     if co2 is not None and tvoc is not None:
         print(f"CO2: {co2} ppm, TVOC: {tvoc} ppb")
     else:
