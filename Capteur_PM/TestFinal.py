@@ -1,5 +1,5 @@
-from testihm import *  # Importation de la classe d'affichage IHM
-from testsds import *  # Importation de la gestion du capteur SDS011
+from IHM import *  # Importation de la classe d'affichage IHM
+from GestionPM import *  # Importation de la gestion du capteur SDS011
 
 # Nécessite l'installation des bibliothèques : serial, pyserial, time, sds011, os et unihiker
 # À terme, les tests avec la classe Unihiker seront remplacés par Kivy
