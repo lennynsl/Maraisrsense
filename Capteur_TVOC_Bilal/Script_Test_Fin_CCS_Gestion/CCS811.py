@@ -154,9 +154,9 @@ class CCS811:
             time.sleep(1)
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Exemple d'utilisation de la classe CCS811
-    Board("UNIHIKER").begin() # Initialise la carte UNIHIKER
+    #Board("UNIHIKER").begin() # Initialise la carte UNIHIKER
 
-    capteur = CCS811()
-    capteur.run()
+    #capteur = CCS811()
+    #capteur.run()
