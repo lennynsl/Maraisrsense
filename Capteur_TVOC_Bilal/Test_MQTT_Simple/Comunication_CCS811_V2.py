@@ -10,7 +10,7 @@ class CommunicationCCS811:
         self.client_identification = client_identification
         self.mots_de_passe = mots_de_passe
         self.adresse_MAC = self.obtenir_adresse_MAC()
-        self.topic_base = f"/{self.adresse_MAC}/capteurTVOC"
+        self.topic_base = f"/{self.adresse_MAC}/"
         self.client = mqtt.Client(client_identification)
         self.client.username_pw_set(username=self.client_identification, password=self.mots_de_passe)
         self.client.tls_set(cert_reqs=ssl.CERT_NONE)
