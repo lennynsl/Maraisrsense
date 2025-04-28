@@ -4,11 +4,9 @@ import time
 from getmac import get_mac_address
 
 class CommunicationCCS811: 
-    def __init__(self, adresse_du_borker, port_connexion, topic_TVOC, topic_CO2, client_identification, mots_de_passe):
+    def __init__(self, adresse_du_borker, port_connexion, client_identification, mots_de_passe):
         self.adresse_du_borker = adresse_du_borker
         self.port_connexion = port_connexion
-        self.topic_TVOC = topic_TVOC
-        self.topic_CO2 = topic_CO2
         self.client_identification = client_identification
         self.mots_de_passe = mots_de_passe
         self.client = mqtt.Client(client_identification=self.client_identification)
@@ -18,9 +16,11 @@ class CommunicationCCS811:
         self.client.connect(self.adresse_du_borker, self.port_connexion)
         self.client.loop_start()
 
-    def mesures_à_envoyer(self, TVOC, CO2): 
-        self.client.publish(self.topic_TVOC, TVOC, retain=True)
+    def envoyer(self, CO2, valeur1): 
         self.client.publish(self.topic_CO2, CO2, retain=True)
+    
+    def envoyer(self, TVOC, valeur2): 
+        self.client.publish(self.topic_TVOC, TVOC, retain=True)
 
     def obtenir_adresse_MAC():
         win_mac = get_mac_address(interface="wlan0")
@@ -35,7 +35,7 @@ if __name__ == "__main__" :
     topic_CO2 = "/d2e09263c6cc/capteurTVOC/CO2"
     client_identification = "root" 
     mots_de_passe = "hyrome49#" 
+    envoyer = CommunicationCCS811(adresse_du_borker, port_connexion, topic_TVOC, topic_CO2, client_identification, mots_de_passe)
+    envoyer.envoyer(500, 4) 
+    time.sleep(0.5) 
 
-    capteur = CommunicationCCS811(adresse_du_borker, port_connexion, topic_TVOC, topic_CO2, client_identification, mots_de_passe)
-    capteur.mesures_à_envoyer(500, 4) # Exemple de valeurs à envoyer
-    time.sleep(0.5) # Attendre un peu pour s'assurer que les messages sont envoyés
