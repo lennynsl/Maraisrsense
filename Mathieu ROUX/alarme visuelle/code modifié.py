@@ -1,13 +1,24 @@
 import paho.mqtt.client as mqtt
 #classe pour la connexion au broker MQTT
 class MQTTClient:
-    def __init__(self, broker, port):
+    def __init__(self, broker, port, username, password):
         self.client = mqtt.Client()
         self.broker = broker
         self.port = port
+        self.username = username
+        self.password = password
+        
 
-    def connect(self):
+    def connect(self,rc):
+        self.client.tls_set()
+        self.client.username_pw_set(self.username, self.password)
         self.client.connect(self.broker, self.port, 60)
+        if rc == 0:
+            print(" Connecté au broker MQTT !")
+            self.client.subscribe()
+        else:
+            print(f" Échec de connexion. Code de retour : {rc}")
+
 
     def publish(self, topic, payload):
         self.client.publish(topic, payload)
@@ -27,7 +38,7 @@ def choose_message(key):
         return None
 
 #paramètres de connexion au broker MQTT
-mqtt_client = MQTTClient(broker="172.16.4.71", port=1883)
+mqtt_client = MQTTClient(broker="mqtt.marais2025.btssn.ovh", port=8883, username="root", password="hyrome49#")
 mqtt_client.connect()
 
 while True:
