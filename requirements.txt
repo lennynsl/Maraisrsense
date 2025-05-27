@@ -6,3 +6,11 @@ paho-mqtt>=2.0.0
 pinpong>=1.2.0
 sds011>=0.2.11
 
+# Les modules standards comme ssl, time et getmac :
+# - ssl et time font partie de la bibliothèque standard Python, donc pas besoin de les ajouter ici.
+# - getmac doit être ajouté si utilisé dans le projet.
+
+getmac>=0.9.4
+pyserial>=3.5
+unihiker>=1.0.0
+
