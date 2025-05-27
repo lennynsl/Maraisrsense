@@ -23,10 +23,14 @@ Ce projet permet de surveiller la qualité de l'air à l'aide de capteurs connec
    ```
    > Cette commande utilise l'outil **pip** pour installer automatiquement toutes les bibliothèques Python listées dans le fichier `requirements.txt` nécessaires au bon fonctionnement du projet.
    > Ouvre un terminal (ou l'invite de commandes), place-toi dans le dossier du projet avec `cd chemin/vers/Maraisrsense`, puis copie-colle cette commande et appuie sur Entrée.
-3. **Lancez l'application** :
-   ```bash
-   python main.py
-   ```
+3. **Lancez les scripts correspondant aux modules que vous souhaitez utiliser** :
+   - Chaque capteur (TVOC, CO₂, PM2.5, PM10) ou actionneur (relais, gyrophare, alarmes) possède son propre script Python, généralement nommé `main_<module>.py` ou similaire.
+   - Par exemple, pour lancer un module, utilisez :
+     ```bash
+     python main_<nom_du_module>.py
+     ```
+   - Adaptez `<nom_du_module>` selon le capteur ou l'actionneur à surveiller ou contrôler.
+   > Vous pouvez lancer plusieurs scripts en parallèle pour une surveillance complète et le contrôle des alarmes.
 4. **Surveillez les mesures en temps réel** et recevez des alertes en cas de seuil critique.
 
 ---
