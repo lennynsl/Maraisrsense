@@ -1,6 +1,3 @@
-D'accord, j'ai mis à jour ces deux lignes dans le script Bash.
-
-Voici le script modifié :
 
 ```bash
 #!/bin/bash
