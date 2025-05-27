@@ -1,6 +1,6 @@
-# Maraisrsense
+# Marais'R'Sense
 
-Bienvenue dans **Maraisrsense** !  
+Bienvenue dans **Marais'R'Sense** !  
 Ce projet permet de surveiller la qualité de l'air à l'aide de capteurs connectés et intègre des fonctionnalités avancées.
 
 ---
@@ -14,7 +14,7 @@ Ce projet permet de surveiller la qualité de l'air à l'aide de capteurs connec
 
 ---
 
-## 🚀 Comment utiliser Maraisrsense ?
+## 🚀 Comment utiliser Marais'R'Sense ?
 
 1. **Installez Python 3.10 ou plus récent** sur votre ordinateur.
 2. **Installez les dépendances** :
