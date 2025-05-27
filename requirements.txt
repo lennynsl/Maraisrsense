@@ -5,4 +5,4 @@ kivy>=2.3.0
 paho-mqtt>=2.0.0
 pinpong>=1.2.0
 sds011>=0.2.11
-# Ajoute ici d'autres dépendances spécifiques si besoin
+
