@@ -39,18 +39,26 @@ Ce projet permet de surveiller la qualité de l'air à l'aide de capteurs connec
 
 ---
 
-## 📂 Structure du projet
+## 🖼️ Schéma de fonctionnement
 
 ```
-Maraisrsense/
-│── Capteur_TVOC/
-│   ├── capteur.py
-│   ├── README.md
-│── main.py
-│── requirements.txt
-│── README.md
-│── LICENSE
++-------------------+         +-------------------+         +-------------------+
+|   Capteurs TVOC   |         |    Interface      |         |    Serveur MQTT   |
+|   CO₂, PM2.5,     | ----->  |    Utilisateur    | ----->  |   (Cloud/local)   |
+|   PM10            |         |    (Kivy)         |         |                   |
++-------------------+         +-------------------+         +-------------------+
+         |                            |                              |
+         |                            v                              |
+         |                  +-------------------+                   |
+         |                  |   Alarmes &       | <-----------------+
+         +----------------> |   Gyrophare       |
+                            +-------------------+
 ```
+
+- **Les capteurs** mesurent la qualité de l'air (TVOC, CO₂, PM2.5, PM10).
+- **L'interface utilisateur** affiche les mesures en temps réel.
+- **Les alarmes** (gyrophare, relais) se déclenchent en cas de seuil critique.
+- **Les données** sont envoyées automatiquement au serveur MQTT.
 
 ---
 
@@ -103,3 +111,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+---
+
+_Readme créé par Bilal._
