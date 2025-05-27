@@ -1,0 +1,7 @@
+# Version recommandée de Python : >=3.10 (d'autres versions récentes sont également disponibles sur https://www.python.org/downloads/)
+# Ce fichier ne gère que les bibliothèques Python, pas Python lui-même.
+# Pour installer Python, rends-toi sur https://www.python.org/downloads/
+kivy>=2.3.0
+paho-mqtt>=2.0.0
+pinpong>=1.2.0
+# Ajoute ici d'autres dépendances spécifiques si besoin

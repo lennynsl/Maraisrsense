@@ -21,6 +21,8 @@ Ce projet permet de surveiller la qualité de l'air à l'aide de capteurs connec
    ```bash
    pip install -r requirements.txt
    ```
+   > Cette commande utilise l'outil **pip** pour installer automatiquement toutes les bibliothèques Python listées dans le fichier `requirements.txt` nécessaires au bon fonctionnement du projet.
+   > Ouvre un terminal (ou l'invite de commandes), place-toi dans le dossier du projet avec `cd chemin/vers/Maraisrsense`, puis copie-colle cette commande et appuie sur Entrée.
 3. **Lancez l'application** :
    ```bash
    python main.py
