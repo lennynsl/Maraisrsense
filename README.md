@@ -1,3 +1,8 @@
+D'accord, j'ai mis à jour ces deux lignes dans le script Bash.
+
+Voici le script modifié :
+
+```bash
 #!/bin/bash
 
 # Noms des fichiers
@@ -116,4 +121,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 EOL_LICENSE
 
-# Les lignes echo ont été supprimées comme demandé.
+```
