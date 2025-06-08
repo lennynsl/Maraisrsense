@@ -5,7 +5,7 @@ Améliorations visuelles : titres plus grands, encadrés, couleurs (Markdown),
 # 🌈 **Marais'R'Sense** – *Plateforme de Surveillance de la Qualité de l'Air*
 
 Bienvenue sur le dépôt **Marais'R'Sense** !  
-Ce projet open source propose des outils simples pour mesurer, afficher et surveiller la qualité de l'air, que vous soyez débutant, enseignant, curieux ou professionnel.
+Ce projet open source met à votre disposition des outils accessibles et fiables pour mesurer, visualiser et surveiller la qualité de l'air, que vous soyez débutant, enseignant, passionné ou professionnel.
 
 ---
 
