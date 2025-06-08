@@ -1,7 +1,5 @@
 # Capteur TVOC & CO₂ (CCS811) – UNIHIKER
 
-**Version finale – Projet pédagogique et démonstrateur industriel 2024**
-
 ---
 
 ## Présentation
