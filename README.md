@@ -16,20 +16,6 @@ Ce projet open source propose une suite complète d'outils pour la mesure, l'aff
 
 ---
 
-## 🗂️ Structure du Dépôt
-
-
-| Dossier / Projet                                   | Description principale                                                                 | Pour qui ?                |
-|----------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
-| [`capteur_tvoc_co2_bilal_etudiant_2/`](./capteur_tvoc_co2_bilal_etudiant_2/) | Tout sur le capteur principal (CO₂/TVOC) : tests, interface graphique, envoi MQTT      | Débutant ➔ Avancé         |
-| [`capteur_tvoc_co2_bilal_etudiant_2/projet_plus_récent_fini/`](./capteur_tvoc_co2_bilal_etudiant_2/projet_plus_récent_fini/) | Application complète avec écran tactile, alarmes, interface moderne                    | Utilisateur final, école  |
-| [`capteur_tvoc_co2_bilal_etudiant_2/physique_ccs811/`](./capteur_tvoc_co2_bilal_etudiant_2/physique_ccs811/) | Test rapide du capteur (affichage console, pas besoin d'internet)                      | Makers, diagnostic        |
-| [`capteur_tvoc_co2_bilal_etudiant_2/script_test_fin_ccs_gestion/`](./capteur_tvoc_co2_bilal_etudiant_2/script_test_fin_ccs_gestion/) | Vérification capteur + envoi sur Internet (sans interface graphique)                   | Intégrateur, test réseau  |
-| [`capteur_tvoc_co2_bilal_etudiant_2/test_mqtt_simple/`](./capteur_tvoc_co2_bilal_etudiant_2/test_mqtt_simple/) | Exemples simples pour tester la connexion/envoi Internet                               | Développeur, debug        |
-| [`capteur_tvoc_co2_bilal_etudiant_2/adresse_mac_obtained/`](./capteur_tvoc_co2_bilal_etudiant_2/adresse_mac_obtained/) | Trouver l'adresse réseau de l'appareil                                                 | Réseau, identification    |
-| [`capteur_tvoc_co2_bilal_etudiant_2/ancien_projet/`](./capteur_tvoc_co2_bilal_etudiant_2/ancien_projet/) | Archives, prototypes, anciennes versions                                               | Historique, rétrocompat.  |
-
----
 
 ## 🌟 Fonctionnalités Globales
 
