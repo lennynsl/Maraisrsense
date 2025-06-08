@@ -6,45 +6,43 @@
 
 ## Présentation
 
-Ce dépôt propose une solution complète pour la surveillance de la qualité de l'air (CO₂ et TVOC) à l'aide d'un capteur CCS811 connecté à une carte UNIHIKER.  
-Le projet couvre tous les usages : test matériel, interface graphique (Kivy), envoi automatique des mesures sur Internet (MQTT), gestion dynamique des seuils d'alerte, robustesse industrielle, et exemples pédagogiques.
+Ce dossier propose une solution simple pour surveiller la qualité de l'air (CO₂ et TVOC) avec un capteur CCS811 branché sur une carte UNIHIKER.  
+Vous pouvez tester le matériel, utiliser une application graphique, envoyer les mesures sur Internet (MQTT), gérer les alertes, et plus encore.
 
 ---
 
-## Public visé
+## Pour qui ?
 
-- **Débutants** : prise en main rapide, test matériel simple.
-- **Enseignants/Makers** : intégration facile dans des TP ou projets IoT.
-- **Développeurs** : architecture MVC, scripts robustes, communication réseau.
-- **Industriels** : supervision, alertes, traçabilité, gestion multi-capteurs.
+- **Débutants** : prise en main rapide, test matériel simple.
+- **Enseignants/Makers** : facile à intégrer dans un TP ou un projet.
+- **Développeurs** : code structuré, communication réseau, scripts robustes.
+- **Industriels** : supervision, alertes, gestion multi-capteurs.
 
 ---
 
-## Organisation du dépôt
+## Organisation du dossier
 
-| Dossier / Script                | Description                                                                                   | Public cible                        |
-|----------------------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
-| **Projet_plus_récent_fini/**     | Application la plus avancée : interface graphique (Kivy), MVC, gestion industrielle, logs.   | Utilisateur final, développeur      |
-| **Script_Test_Fin_CCS_Gestion/** | Scripts de test et gestion du capteur, publication MQTT, vérification du matériel.           | Débutant, testeur, intégrateur      |
-| **Test_MQTT_Simple/**            | Exemples pour tester la connexion et l'envoi de données à un serveur MQTT.                   | Développeur, test réseau            |
-| **Adresse_MAC_Obtained/**        | Script pour récupérer l'adresse MAC de la carte (identification réseau).                     | Développeur, administrateur réseau  |
-| **physique_CCS811/**             | Script minimal pour vérifier le capteur (console, pas de réseau).                            | Débutant, test matériel rapide      |
-| **Ancien_projet/**               | Archives, prototypes, versions précédentes.                                                  | Développeur, rétrocompatibilité     |
+| Dossier                        | À quoi ça sert ?                                                                 | Pour qui ?                    |
+|--------------------------------|----------------------------------------------------------------------------------|-------------------------------|
+| **projet_plus_récent_fini/**   | Application complète avec interface graphique (Kivy), gestion avancée, logs.      | Utilisateur final, développeur |
+| **physique_CCS811/**           | Tester rapidement le capteur CCS811 (console, sans réseau).                      | Débutant, test matériel        |
+| **test_mqtt_simple_basique/**  | Exemples très simples pour vérifier la connexion et l'envoi de données MQTT.     | Développeur, test réseau       |
+| **Ancien_projet/**             | Archives, anciens essais, prototypes.                                            | Pour référence, rétrocompat.   |
 
 ---
 
 ## Fonctionnalités principales
 
-- Lecture fiable des valeurs de CO₂ (ppm) et TVOC (ppb) via I2C.
-- Affichage graphique moderne (Kivy) ou console.
-- Publication automatique et sécurisée des mesures sur un broker MQTT.
-- Gestion dynamique des seuils d’alerte via MQTT.
-- Robustesse industrielle : gestion des erreurs, logs, reconnexion automatique.
-- Scripts de test matériel et d’intégration réseau.
+- Lire les valeurs de CO₂ (ppm) et TVOC (ppb) simplement.
+- Afficher les mesures sur écran ou dans la console.
+- Envoyer automatiquement les mesures sur Internet (MQTT).
+- Recevoir et gérer les seuils d’alerte à distance.
+- Robuste : gestion des erreurs, reconnexion automatique, logs.
+- Scripts pour tester le matériel ou le réseau facilement.
 
 ---
 
-## Prise en main rapide
+## Comment démarrer rapidement ?
 
 ### 1. Tester le capteur (console)
 ```bash
@@ -55,80 +53,56 @@ python physique_co2_tvoc_ccs811.py
 
 ### 2. Lancer l'application graphique complète
 ```bash
-cd Projet_plus_récent_fini/kivy_application_tvoc_co2_dag_bilal/modele_mvc
+cd projet_plus_récent_fini/kivy_application_tvoc_co2_bilal/modele_mvc
 python main.py
 ```
 *Interface graphique, alertes, envoi automatique, navigation.*
 
-### 3. Envoyer les mesures sur Internet (MQTT)
-Configurer le serveur dans `Test_MQTT_Simple/Comunication_CCS811_V2.py` puis :
+### 3. Tester l'envoi MQTT simple
 ```bash
-python Test_MQTT_Simple/Comunication_CCS811_V2.py
+cd test_mqtt_simple_basique
+python Comunication_CCS811_V2.py
 ```
-
-### 4. Écouter les messages MQTT (debug)
-```bash
-python Test_MQTT_Simple/MQTT\ broker\ connexion.py
-```
-
-### 5. Récupérer l'adresse MAC
-```bash
-python Script_Test_Fin_CCS_Gestion/Adresse_MAC_Obtained/obtained_MAC.py
-```
+*Vérifie la connexion et l'envoi de données sur un serveur MQTT.*
 
 ---
 
 ## Installation & Dépendances
 
-- **Matériel** : Carte UNIHIKER, capteur CCS811 (I2C).
-- **Logiciel** : Python 3.8+, modules : `kivy`, `pinpong`, `paho-mqtt`, `getmac`.
-- **Installation** :
+- **Matériel** : Carte UNIHIKER, capteur CCS811 (I2C).
+- **Logiciel** : Python 3.8+, modules : `kivy`, `pinpong`, `paho-mqtt`, `getmac`.
+- **Installer les dépendances** :
   ```bash
   pip install kivy pinpong paho-mqtt getmac
   ```
 
 ---
 
-## Architecture logicielle
+## Pourquoi plusieurs dossiers ?
 
-- **MVC (Modèle-Vue-Contrôleur)** :  
-  - **Modèle** : logique métier, gestion du capteur, communication MQTT, calculs, seuils.
-  - **Vue** : interface graphique (Kivy), affichage des mesures, alertes, navigation.
-  - **Contrôleur** : fait le lien entre modèle et vue, orchestre les actions, gère les interactions utilisateur.
-- **Scripts de test** : Pour vérifier chaque brique séparément (matériel, réseau, etc.).
-- **Gestion des erreurs** : try/except partout, logs, reconnexion automatique.
-- **Extensible** : Ajoutez d'autres capteurs, adaptez l'interface, changez le serveur MQTT facilement.
-
----
-
-## Pourquoi plusieurs dossiers ?
-
-- **physique_CCS811/** : Diagnostic matériel rapide, sans dépendance réseau.
-- **Script_Test_Fin_CCS_Gestion/** : Test capteur ↔ Python ↔ MQTT sans interface graphique.
-- **Projet_plus_récent_fini/** : Application complète, robuste, prête à l'emploi ou à intégrer.
-- **Test_MQTT_Simple/** : Apprentissage ou diagnostic de la communication réseau.
-- **Adresse_MAC_Obtained/** : Identification réseau (multi-capteurs).
-- **Ancien_projet/** : Historique, exemples, rétrocompatibilité.
+- **physique_CCS811/** : Tester le matériel sans se compliquer, juste en console.
+- **projet_plus_récent_fini/** : Application complète, interface graphique, gestion avancée.
+- **test_mqtt_simple_basique/** : Tester ou apprendre la communication réseau MQTT.
+- **Ancien_projet/** : Archives, exemples, prototypes (pour référence).
 
 ---
 
 ## Conseils & Bonnes pratiques
 
-- Respectez la séparation MVC pour la maintenance et l’évolutivité.
-- Commentez vos ajouts pour faciliter la compréhension et la reprise du code.
-- Testez chaque modification sur l’interface et la communication MQTT.
-- Consultez les logs pour diagnostiquer les problèmes matériels ou réseau.
-- Adaptez les seuils et la configuration MQTT selon votre environnement.
+- Respectez la séparation des dossiers pour vous y retrouver facilement.
+- Commentez vos ajouts pour aider les autres (et vous-même plus tard).
+- Testez chaque modification sur l’interface ou la communication réseau.
+- Consultez les logs si un problème survient.
+- Adaptez les seuils et la configuration MQTT selon votre besoin.
 
 ---
 
 ## Auteur & Contribution
 
 - **Bilal DAG (Étudiant 2)** – auteur principal, conception, développement, documentation.
-- Basé sur des travaux de Sasa Saftic, Sparkfun, Nathan Seidle, etc.
 
-Pour toute question, suggestion ou contribution, ouvrez une issue ou contactez l’auteur.  
-Les contributions sont les bienvenues : fork, pull request, documentation, tests, etc.
+Pour toute question ou suggestion, ouvrez une issue ou contactez l’auteur.  
+Les contributions sont les bienvenues : fork, pull request, documentation, tests, etc.
 
 ---
 

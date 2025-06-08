@@ -1,7 +1,72 @@
 # 🌈 Marais'R'Sense – Plateforme de Surveillance de la Qualité de l'Air
 
 Bienvenue sur le dépôt **Marais'R'Sense** !  
-Ce projet open source propose une suite complète d'outils pour la mesure, l'affichage et la supervision de la qualité de l'air, adaptés à l'enseignement, la recherche, le prototypage industriel et la démonstration.
+Ce projet open source propose des outils simples pour mesurer, afficher et surveiller la qualité de l'air, adaptés à l'enseignement, la découverte, ou l'industrie.
+
+---
+
+## 🗂️ Structure des dossiers principaux
+
+| Dossier | À quoi ça sert ? | Pour qui ? |
+|---------|------------------|------------|
+| [projet_plus_récent_fini](./Capteur_TVOC_CO2_Bilal_etudiant_2/projet_plus_récent_fini) | Application complète avec interface graphique (Kivy), gestion avancée, envoi automatique des mesures | Utilisateur final, développeur |
+| [physique_CCS811](./Capteur_TVOC_CO2_Bilal_etudiant_2/physique_CCS811) | Tester rapidement le capteur CCS811 (CO₂/TVOC) sans réseau, juste en console | Débutant, test matériel |
+| [test_mqtt_simple_basique](./Capteur_TVOC_CO2_Bilal_etudiant_2/test_mqtt_simple_basique) | Exemples très simples pour vérifier la connexion et l'envoi de données MQTT | Développeur, test réseau |
+| [Ancien_projet](./Capteur_TVOC_CO2_Bilal_etudiant_2/Ancien_projet) | Archives, anciens essais, prototypes | Pour référence, rétrocompatibilité |
+
+---
+
+### 📁 Détail des dossiers (cliquez pour en savoir plus)
+
+<details>
+<summary><strong>projet_plus_récent_fini</strong> – Application complète</summary>
+
+- Application graphique moderne (Kivy)
+- Architecture claire (MVC)
+- Mesure automatique et envoi sur Internet (MQTT)
+- Gestion des alertes et seuils dynamiques
+- Plusieurs écrans (accueil, adresse MAC, alertes)
+- **Pour lancer :**
+  ```bash
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/projet_plus_récent_fini/kivy_application_tvoc_co2_bilal/modele_mvc
+  python main.py
+  ```
+- Voir le README du dossier pour plus d'explications.
+</details>
+
+<details>
+<summary><strong>physique_CCS811</strong> – Test matériel rapide</summary>
+
+- Vérifie que le capteur CCS811 fonctionne bien (CO₂, TVOC)
+- Affiche les mesures toutes les 10 secondes dans la console
+- Idéal pour vérifier le câblage ou le matériel sans se compliquer
+- **Pour lancer :**
+  ```bash
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/physique_CCS811
+  python physique_co2_tvoc_ccs811.py
+  ```
+</details>
+
+<details>
+<summary><strong>test_mqtt_simple_basique</strong> – Exemples MQTT simples</summary>
+
+- Scripts pour tester l'envoi de données sur un serveur MQTT
+- Permet de vérifier la connexion réseau et la configuration MQTT
+- Très utile pour apprendre ou diagnostiquer un problème réseau
+- **Pour lancer :**
+  ```bash
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/test_mqtt_simple_basique
+  python Comunication_CCS811_V2.py
+  ```
+</details>
+
+<details>
+<summary><strong>Ancien_projet</strong> – Archives et prototypes</summary>
+
+- Versions précédentes, prototypes, exemples historiques
+- Sert de référence ou d'inspiration
+- À ne pas utiliser pour un projet neuf
+</details>
 
 ---
 
@@ -45,17 +110,17 @@ pip install kivy pinpong paho-mqtt getmac
 
 - **Application graphique complète** (interface Kivy, MQTT, seuils dynamiques) :
   ```bash
-  cd Capteur_TVOC_CO2_Bilal/Projet_plus_récent_fini/kivy_application_tvoc_co2_dag_bilal/modele_mvc
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/projet_plus_récent_fini/kivy_application_tvoc_co2_bilal/modele_mvc
   python main.py
   ```
 - **Test matériel rapide** (console, sans réseau) :
   ```bash
-  cd Capteur_TVOC_CO2_Bilal/physique_CCS811
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/physique_CCS811
   python physique_co2_tvoc_ccs811.py
   ```
 - **Test MQTT simple** :
   ```bash
-  cd Capteur_TVOC_CO2_Bilal/Test_MQTT_Simple
+  cd Capteur_TVOC_CO2_Bilal_etudiant_2/test_mqtt_simple_basique
   python Comunication_CCS811_V2.py
   ```
 
