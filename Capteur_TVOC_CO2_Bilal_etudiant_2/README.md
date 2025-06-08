@@ -104,7 +104,11 @@ Les contributions sont les bienvenues : fork, pull request, documentation, tests
 
 ---
 
-**Projet final validé – 2024**  
-Merci à tous les contributeurs et utilisateurs !
+## Validation du projet
+
+**Projet final validé**  
+*Année académique 2024-2025*
+
+Un grand merci à tous les contributeurs, testeurs et utilisateurs pour leur implication et leurs retours !
 
 
