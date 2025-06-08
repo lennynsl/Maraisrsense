@@ -14,18 +14,18 @@ Vous pouvez cliquer sur chaque nom pour voir ce qu'il contient.
 ---
 
 ### 1. [Capteur_TVOC_CO2_Bilal_etudiant_2](./Capteur_TVOC_CO2_Bilal_etudiant_2)  
-*Mesure du CO₂ et des composés organiques volatils (TVOC) dans l'air avec la carte Unihiker*
+*Mesure du CO₂ et des composés organiques volatils (TVOC) dans l'air avec la carte UniHiker*
 
 - **physique_CCS811/**  
-  *Permet de vérifier que le capteur fonctionne sur la carte Unihiker, en affichant les mesures dans la console (texte).*  
+  *Permet de vérifier que le capteur fonctionne sur la carte UniHiker, en affichant les mesures dans la console (texte).*  
   [Voir le dossier](./Capteur_TVOC_CO2_Bilal_etudiant_2/physique_CCS811)
 - **projet_plus_récent_fini/**  
-  *Application avec écran graphique (boutons, couleurs, alertes) sur Unihiker pour voir les mesures en direct et envoyer les données sur Internet.*  
+  *Application avec écran graphique (boutons, couleurs, alertes) sur UniHiker pour voir les mesures en direct et envoyer les données sur Internet.*  
   [Voir le dossier](./Capteur_TVOC_CO2_Bilal_etudiant_2/projet_plus_récent_fini)
     - `kivy_application_tvoc_co2_bilal/`
         - `modele_mvc/` : Le cœur du programme graphique
 - **test_mqtt_simple_basique/**  
-  *Pour tester si l'envoi des mesures sur Internet fonctionne bien depuis Unihiker.*  
+  *Pour tester si l'envoi des mesures sur Internet fonctionne bien depuis UniHiker.*  
   [Voir le dossier](./Capteur_TVOC_CO2_Bilal_etudiant_2/test_mqtt_simple_basique)
 - **Ancien_projet/**  
   *Anciens essais, archives (pour les curieux ou pour garder l'historique).*  
@@ -34,19 +34,19 @@ Vous pouvez cliquer sur chaque nom pour voir ce qu'il contient.
 ---
 
 ### 2. [Capteur_PM_Lenny_etudiant_1](./Capteur_PM_Lenny_etudiant_1)  
-*Mesure des poussières fines dans l'air (PM2.5 et PM10) avec la carte Unihiker*
+*Mesure des poussières fines dans l'air (PM2.5 et PM10) avec la carte UniHiker*
 
 - **TestFinal.py**  
-  *Lance la mesure et affiche les résultats à l'écran de la carte Unihiker.*
+  *Lance la mesure et affiche les résultats à l'écran de la carte UniHiker.*
 - **GestionPM.py**  
-  *Gère la communication avec le capteur de poussières SDS011 branché sur Unihiker.*
+  *Gère la communication avec le capteur de poussières SDS011 branché sur UniHiker.*
 - **IHM.py**  
-  *Affiche les résultats de façon simple sur Unihiker.*
+  *Affiche les résultats de façon simple sur UniHiker.*
 
 ---
 
 ### 3. [Mathieu_etudiant_3](./Mathieu_etudiant_3)  
-*Gestion des alarmes et signaux visuels (lumières, gyrophare, etc.) sur Unihiker*
+*Gestion des alarmes et signaux visuels (lumières, gyrophare, etc.) sur UniHiker*
 
 - **alarmes/**  
   *Fait clignoter une lumière ou déclenche une alarme si la qualité de l'air est mauvaise.*
@@ -60,8 +60,8 @@ Vous pouvez cliquer sur chaque nom pour voir ce qu'il contient.
 ## 🏠 Présentation Générale
 
 **Marais'R'Sense**, c'est :
-- Des capteurs branchés sur la carte **Unihiker** qui mesurent la qualité de l'air (CO₂, TVOC, poussières PM2.5 et PM10)
-- Un affichage simple sur l'écran tactile de la carte Unihiker (avec des couleurs, des alertes)
+- Des capteurs branchés sur la carte **UniHiker** qui mesurent la qualité de l'air (CO₂, TVOC, poussières PM2.5 et PM10)
+- Un affichage simple sur l'écran tactile de la carte UniHiker (avec des couleurs, des alertes)
 - Des alarmes visuelles (lumières, gyrophare) qui se déclenchent si l'air devient mauvais
 - L'envoi automatique des mesures sur Internet pour suivre à distance
 - Un projet adapté à tous : test rapide, démonstration, projet d'école, ou usage professionnel
