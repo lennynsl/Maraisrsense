@@ -18,15 +18,17 @@ Ce projet open source propose une suite complète d'outils pour la mesure, l'aff
 
 ## 🗂️ Structure du Dépôt
 
-| Dossier / Projet                                 | Description principale                                                                 | Pour qui ?                |
-|--------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
-| [`Capteur_TVOC_CO2_Bilal/`](./Capteur_TVOC_CO2_Bilal) | Tout sur le capteur principal (CO₂/TVOC) : tests, interface graphique, envoi MQTT      | Débutant ➔ Avancé         |
-| [`Capteur_TVOC_CO2_Bilal/Projet_plus_récent_fini/`](./Capteur_TVOC_CO2_Bilal/Projet_plus_récent_fini) | Application complète avec écran tactile, alarmes, interface moderne                    | Utilisateur final, école  |
-| [`Capteur_TVOC_CO2_Bilal/physique_CCS811/`](./Capteur_TVOC_CO2_Bilal/physique_CCS811) | Test rapide du capteur (affichage console, pas besoin d'internet)                      | Makers, diagnostic        |
-| [`Capteur_TVOC_CO2_Bilal/Script_Test_Fin_CCS_Gestion/`](./Capteur_TVOC_CO2_Bilal/Script_Test_Fin_CCS_Gestion) | Vérification capteur + envoi sur Internet (sans interface graphique)                   | Intégrateur, test réseau  |
-| [`Capteur_TVOC_CO2_Bilal/Test_MQTT_Simple/`](./Capteur_TVOC_CO2_Bilal/Test_MQTT_Simple) | Exemples simples pour tester la connexion/envoi Internet                               | Développeur, debug        |
-| [`Capteur_TVOC_CO2_Bilal/Adresse_MAC_Obtained/`](./Capteur_TVOC_CO2_Bilal/Adresse_MAC_Obtained) | Trouver l'adresse réseau de l'appareil                                                 | Réseau, identification    |
-| [`Capteur_TVOC_CO2_Bilal/Ancien_projet/`](./Capteur_TVOC_CO2_Bilal/Ancien_projet) | Archives, prototypes, anciennes versions                                               | Historique, rétrocompat.  |
+> **Note :** Si un lien ne fonctionne pas, vérifiez que le dossier existe bien dans l'arborescence du projet ou qu'il n'a pas été renommé/déplacé récemment.
+
+| Dossier / Projet                                   | Description principale                                                                 | Pour qui ?                |
+|----------------------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
+| [`Capteur_TVOC_CO2_Bilal/`](./Capteur_TVOC_CO2_Bilal/) | Tout sur le capteur principal (CO₂/TVOC) : tests, interface graphique, envoi MQTT      | Débutant ➔ Avancé         |
+| [`Capteur_TVOC_CO2_Bilal/Projet_plus_récent_fini/`](./Capteur_TVOC_CO2_Bilal/Projet_plus_récent_fini/) | Application complète avec écran tactile, alarmes, interface moderne                    | Utilisateur final, école  |
+| [`Capteur_TVOC_CO2_Bilal/physique_CCS811/`](./Capteur_TVOC_CO2_Bilal/physique_CCS811/) | Test rapide du capteur (affichage console, pas besoin d'internet)                      | Makers, diagnostic        |
+| [`Capteur_TVOC_CO2_Bilal/Script_Test_Fin_CCS_Gestion/`](./Capteur_TVOC_CO2_Bilal/Script_Test_Fin_CCS_Gestion/) | Vérification capteur + envoi sur Internet (sans interface graphique)                   | Intégrateur, test réseau  |
+| [`Capteur_TVOC_CO2_Bilal/Test_MQTT_Simple/`](./Capteur_TVOC_CO2_Bilal/Test_MQTT_Simple/) | Exemples simples pour tester la connexion/envoi Internet                               | Développeur, debug        |
+| [`Capteur_TVOC_CO2_Bilal/Adresse_MAC_Obtained/`](./Capteur_TVOC_CO2_Bilal/Adresse_MAC_Obtained/) | Trouver l'adresse réseau de l'appareil                                                 | Réseau, identification    |
+| [`Capteur_TVOC_CO2_Bilal/Ancien_projet/`](./Capteur_TVOC_CO2_Bilal/Ancien_projet/) | Archives, prototypes, anciennes versions                                               | Historique, rétrocompat.  |
 
 ---
 
