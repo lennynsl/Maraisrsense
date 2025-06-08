@@ -1,0 +1,163 @@
+# ==========================================================
+# demo3.kv
+# Version : 1.3.0 (Conformité MVC, fréquence d'affichage 60s, conformité industrielle, commentaires clarifiés)
+# Fichier KV pour le layout graphique Kivy du projet Modèle_MVC
+# Définit les vues VueAccueil et Ecran1 (Accueil, mesures, MAC, etc.)
+# Les valeurs sont mesurées et affichées toutes les 60 secondes (1 minute) conformément aux exigences industrielles.
+# ==========================================================
+
+<VueAccueil>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 10]
+        spacing: 5
+
+        Label:
+            id: titre_co2
+            text: "CO2"
+            font_size: '30sp'
+            bold: True
+            color: 0, 1, 0, 1  # Vert par défaut
+            canvas.after:
+                Color:
+                    rgba: self.color
+                Line:
+                    points: [self.x, self.y, self.x + self.width, self.y]
+                    width: 1
+
+        Label:
+            id: valeur1
+            text: "0 ppm"
+            font_size: '22sp'
+            color: 0, 1, 0, 1
+
+        Label:
+            id: moyenne_co2
+            text: "Moy : 0 ppm"
+            font_size: '18sp'
+            bold: True
+            color: 0, 0, 1, 1  # Bleu vif
+            size_hint_y: None
+            height: 31  # Plus grand en hauteur
+            canvas.before:
+                Color:
+                    rgba: 0.05, 0.15, 0.4, 1  # Bleu foncé
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [7,]  # Rayon un peu plus grand
+
+        Image:
+            id: indicateur_co2
+            source: "img/fleche_vert_haut.png"
+            size: 200,200
+
+        Label:
+            id: titre_tvoc
+            text: "TVOC"
+            font_size: '30sp'
+            bold: True
+            color: 0, 1, 0, 1  # Vert par défaut
+            canvas.after:
+                Color:
+                    rgba: self.color
+                Line:
+                    points: [self.x, self.y, self.x + self.width, self.y]
+                    width: 1
+
+        Label:
+            id: valeur2
+            text: "0 ppb"
+            font_size: '22sp'
+            color: 0, 1, 0, 1
+
+        Label:
+            id: moyenne_tvoc
+            text: "Moy : 0 ppb"
+            font_size: '18sp'
+            bold: True
+            color: 0, 0, 1, 1  # Bleu vif
+            size_hint_y: None
+            height: 31  # Plus grand en hauteur
+            canvas.before:
+                Color:
+                    rgba: 0.05, 0.15, 0.4, 1  # Bleu foncé
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [7,]  # Rayon un peu plus grand
+
+        Image:
+            id: indicateur_tvoc
+            source: "img/fleche_vert_haut.png"
+            size: 200,200
+
+        Label:
+            id: alerte_capteur
+            text: ""
+            font_size: '14sp'  
+            color: 1, 0, 0, 1
+            size_hint_y: None
+            height: 24
+
+        Button:
+            text: "Adresse MAC"
+            size_hint_y: None
+            height: 35
+            on_press: root.on_change_ecran()
+
+<Ecran1>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 10]
+        spacing: 5
+
+        # Adresse MAC en haut
+        Label:
+            text: "Adresse MAC de l'Unihiker :"
+            font_size: '15sp'
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: None
+            height: 30
+            color: 1, 1, 1, 1
+            canvas.after:
+                Color:
+                    rgba: 1, 1, 1, 1  # Blanc
+                Line:
+                    points: [self.x, self.y, self.x + self.width, self.y]
+                    width: 1
+
+        Label:
+            id: MAC
+            text: ""
+            font_size: '16sp'
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: None
+            height: 36
+            color: 1, 1, 1, 1  # Texte blanc
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.2, 0.4, 1  # Fond bleu foncé
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12,]
+                Color:
+                    rgba: 1, 1, 1, 1  # Bordure blanche
+                Line:
+                    rounded_rectangle: (*self.pos, *self.size, 10)
+                    width: 1
+
+
+        # Ajout d'un Widget pour pousser le contenu vers le haut
+        Widget:
+            size_hint_y: 1
+
+
+        Button:
+            text: "Retour à l'Accueil"
+            size_hint_y: None
+            height: 35
+            on_press: root.on_retour()

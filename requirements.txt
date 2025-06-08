@@ -1,16 +1,31 @@
-# Version recommandée de Python : >=3.10 (d'autres versions récentes sont également disponibles sur https://www.python.org/downloads/)
-# Ce fichier ne gère que les bibliothèques Python, pas Python lui-même.
-# Pour installer Python, rends-toi sur https://www.python.org/downloads/
+# ==========================================================
+# requirements.txt – Dépendances Python pour Marais'R'Sense
+# Version recommandée de Python : >=3.10
+# ==========================================================
+
+# --- Bibliothèques principales pour l'interface graphique ---
 kivy>=2.3.0
+
+# --- Communication MQTT ---
 paho-mqtt>=2.0.0
+
+# --- Gestion du matériel Unihiker et capteurs ---
 pinpong>=1.2.0
+unihiker>=1.0.0
+
+# --- Capteurs de particules fines (optionnel) ---
 sds011>=0.2.11
 
-# Les modules standards comme ssl, time et getmac :
-# - ssl et time font partie de la bibliothèque standard Python, donc pas besoin de les ajouter ici.
-# - getmac doit être ajouté si utilisé dans le projet.
-
+# --- Utilitaires réseau et série ---
 getmac>=0.9.4
 pyserial>=3.5
-unihiker>=1.0.0
+
+# --- Modules standards (inclus dans Python, pas besoin d'installation) ---
+# ssl
+# time
+
+# ----------------------------------------------------------
+# Pour installer toutes les dépendances :
+# pip install -r requirements.txt
+# ----------------------------------------------------------
 
